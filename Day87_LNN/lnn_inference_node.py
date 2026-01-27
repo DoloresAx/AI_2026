@@ -102,10 +102,10 @@ class LNNInferenceNode(Node):
     LNN Inference ROS2 Node
     
     Subscribes:
-        /image (sensor_msgs/Image) or /image/compressed (CompressedImage)
+        /rgb (sensor_msgs/Image) or /rgb/compressed (CompressedImage)
     
     Publishes:
-        /cmd_vel_unstamped (geometry_msgs/Twist)
+        /cmd_vel (geometry_msgs/Twist)
     """
     
     def __init__(self):
@@ -113,8 +113,8 @@ class LNNInferenceNode(Node):
         
         # Parameters
         self.declare_parameter('model_path', './lnn_model.pth')
-        self.declare_parameter('image_topic', '/image')
-        self.declare_parameter('cmd_vel_topic', '/cmd_vel_unstamped')
+        self.declare_parameter('image_topic', '/rgb')
+        self.declare_parameter('cmd_vel_topic', '/cmd_vel')
         self.declare_parameter('use_compressed', False)
         self.declare_parameter('img_width', 160)
         self.declare_parameter('img_height', 120)
@@ -257,8 +257,10 @@ class LNNInferenceNode(Node):
             
             # Publish
             cmd_msg = Twist()
-            cmd_msg.linear.x = linear_x
-            cmd_msg.angular.z = angular_z
+            khh_const = 10.0
+            ang_const = 5.0
+            cmd_msg.linear.x = linear_x * khh_const
+            cmd_msg.angular.z = angular_z / ang_const
             self.cmd_vel_pub.publish(cmd_msg)
             
             self.get_logger().debug(
