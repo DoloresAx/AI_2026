@@ -7,6 +7,7 @@ ros2 bag record /image /cmd_vel_unstamped
 ```bash
 # Install dependencies
 pip install ncps torch torchvision rosbags opencv-python tqdm matplotlib
+pip install "numpy<2"
 
 # Test model (dummy data နဲ့)
 python train_lnn.py --test

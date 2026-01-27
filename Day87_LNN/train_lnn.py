@@ -250,10 +250,10 @@ class LNNModel(nn.Module):
         # LNN Cell (LTC or CfC)
         if use_cfc:
             # Closed-form Continuous-time (faster)
-            self.lnn = CfC(input_size=feature_dim, wiring=self.wiring)
+            self.lnn = CfC(feature_dim, self.wiring)
         else:
             # Liquid Time Constant
-            self.lnn = LTC(input_size=feature_dim, wiring=self.wiring)
+            self.lnn = LTC(feature_dim, self.wiring)
         
         # Hidden state
         self.hidden = None
@@ -304,7 +304,7 @@ class LNNModelNCP(nn.Module):
             motor_fanin=4                     # Each motor receives from 4 command
         )
         
-        self.lnn = LTC(input_size=feature_dim, wiring=self.wiring)
+        self.lnn = LTC(feature_dim, self.wiring)
         self.hidden = None
         
     def forward(self, x, return_sequences=True):
