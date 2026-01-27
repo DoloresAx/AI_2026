@@ -24,9 +24,9 @@ from pathlib import Path
 # ============== Configuration ==============
 class Config:
     # Data
-    BAG_PATH = "./rosbag2_data"  # ROS2 bag folder path
-    IMAGE_TOPIC = "/image"
-    CMD_VEL_TOPIC = "/cmd_vel_unstamped"
+    BAG_PATH = "/home/mr_robot/square"  # ROS2 bag folder path
+    IMAGE_TOPIC = "/rgb"
+    CMD_VEL_TOPIC = "/cmd_vel"
     
     # Image preprocessing
     IMG_WIDTH = 160
@@ -548,7 +548,7 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="LNN Training for ROS2 Bag Data")
     parser.add_argument("--test", action="store_true", help="Test model with dummy data")
-    parser.add_argument("--bag", type=str, default="./rosbag2_data", help="ROS2 bag path")
+    parser.add_argument("--bag", type=str, default="/home/mr_robot/square", help="ROS2 bag path")
     parser.add_argument("--epochs", type=int, default=100, help="Number of epochs")
     parser.add_argument("--batch_size", type=int, default=32, help="Batch size")
     parser.add_argument("--lr", type=float, default=1e-3, help="Learning rate")

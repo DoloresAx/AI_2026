@@ -12,7 +12,7 @@ pip install ncps torch torchvision rosbags opencv-python tqdm matplotlib
 python train_lnn.py --test
 
 # Train with ROS2 bag
-python train_lnn.py --bag ./rosbag2_data --epochs 100 --batch_size 32
+python train_lnn.py --bag /home/mr_robot/square --epochs 100 --batch_size 32
 ```
 
 ### inference
