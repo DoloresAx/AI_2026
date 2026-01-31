@@ -8,8 +8,9 @@
 
 
 
-
-
+### Probability
+- [part1](https://docs.google.com/presentation/d/1uYwr984P5GzdEyTBspXRqqcN8pG7kO9i/edit?usp=sharing&ouid=117525860054423048101&rtpof=true&sd=true)
+- [part2](https://docs.google.com/presentation/d/12lYnoP1JvWWbapdTzEpWYAQmlKqEnEVW/edit?usp=sharing&ouid=117525860054423048101&rtpof=true&sd=true)
 
 
 
